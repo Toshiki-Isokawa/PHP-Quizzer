@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +16,14 @@
             <div class="container">
                 <h2> You are done! </h2>
                 <p>Congrats! You have completed the test </P>
-                <p>Final Score: 5 </p>
+                <?php 
+                if (isset($_GET['score'])) {
+                    $final_score = $_GET['score'];
+
+                    echo "<p>Final Score: $final_score</p>";
+                }
+                ?>
+                
                 <a href="question.php?n=1"class="start"> Take Again </a>
             </div>
         </main>
